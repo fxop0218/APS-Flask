@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>People list</title>
+</head>
+<body>
+<h1> People information: {{total_people}}</h1>
+<div>Total people</div>
+<div>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>email</th>
+            <th>Show information</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for person in people %}
+            <tr>
+                <td>{{person.id}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.surname}}</td>
+                <td>{{person.email}}</td>
+                <td><a href="show/{{person.id}}">Show</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div>
+    <a href="{{url_for('add_person')}}">Add person</a>
+</div>
+</body>
+</html>
