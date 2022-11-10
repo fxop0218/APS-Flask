@@ -16,6 +16,8 @@
             <th>Surname</th>
             <th>email</th>
             <th>Show information</th>
+            <th>Edit information</th>
+            <th>Delete information</th>
         </tr>
         </thead>
         <tbody>
@@ -26,6 +28,7 @@
                 <td>{{person.surname}}</td>
                 <td>{{person.email}}</td>
                 <td><a href="show/{{person.id}}">Show</a></td>
+                <td><a href="edit/{{person.id}}">Edit</a></td>
             </tr>
             {% endfor %}
         </tbody>

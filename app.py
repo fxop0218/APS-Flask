@@ -66,3 +66,20 @@ def add_person():
             db.session.commit()
             return redirect(url_for("index"))
     return render_template("add.html", person_form=person_form)
+
+
+@app.route("/edit/<int:id>", methods=["GET", "POST"])
+def edit(id):
+    # get the object to edit
+    person = Person.query.get_or_404(id)
+    person_form = PersonForm(obj=person)
+    if request.method == "POST":
+        if person_form.validate_on_submit():
+            person_form.populate_obj(person)
+            app.logger.debug(f"person to update: {person}")
+            # Not needed to call update
+            db.session.commit()
+            return redirect(url_for("index"))
+    return render_template("edit.html", person_form=person_form)
+
+@app.route
